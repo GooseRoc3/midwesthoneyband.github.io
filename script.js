@@ -13,6 +13,28 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+const welcomeModal = document.getElementById('welcome-modal');
+if (welcomeModal) {
+  const STORAGE_KEY = 'mh_welcome_seen_v1';
+  const closeModal = () => {
+    welcomeModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
+  };
+  let seen = false;
+  try { seen = localStorage.getItem(STORAGE_KEY) === '1'; } catch {}
+  if (!seen) {
+    welcomeModal.hidden = false;
+    document.body.classList.add('modal-open');
+    welcomeModal.querySelectorAll('[data-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !welcomeModal.hidden) closeModal();
+    });
+  }
+}
+
 const carousel = document.querySelector('.member-carousel');
 if (carousel) {
   const track = carousel.querySelector('.carousel-track');
