@@ -347,7 +347,7 @@ p { margin: 0 0 16px; }
 .band-mark:hover .band-mark-line-1 { transform: rotate(-3deg) translateX(-4px); }
 .band-mark:hover .band-mark-line-2 { transform: rotate(4deg) translateY(-0.06em) translateX(4px); }
 .subhead {
-  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-size: clamp(0.82rem, 1.2vw, 1rem);
   color: var(--text);
   margin-bottom: 32px;
   letter-spacing: 0.18em;
