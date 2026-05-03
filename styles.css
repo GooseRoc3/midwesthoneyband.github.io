@@ -357,6 +357,16 @@ p { margin: 0 0 16px; }
 section { padding: 96px 0; }
 @media (max-width: 760px) { section { padding: 64px 0; } }
 
+/* sound */
+.sound { background: var(--bg); }
+.sound-blurb {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
 /* about */
 .about { background: var(--bg-2); }
 .about-intro {
