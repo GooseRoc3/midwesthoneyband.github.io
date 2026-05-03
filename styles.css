@@ -861,7 +861,7 @@ section { padding: 96px 0; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr repeat(4, 1fr);
+  grid-template-columns: 2fr repeat(3, 1fr);
   gap: 32px;
 }
 @media (max-width: 760px) {
