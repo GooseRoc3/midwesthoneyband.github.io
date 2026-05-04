@@ -13,6 +13,27 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = document.querySelectorAll('section[id]');
+if (navAnchors.length && sections.length) {
+  const linkBySection = new Map();
+  navAnchors.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    if (id) linkBySection.set(id, a);
+  });
+  const setActive = (id) => {
+    navAnchors.forEach(a => a.removeAttribute('aria-current'));
+    const link = linkBySection.get(id);
+    if (link) link.setAttribute('aria-current', 'location');
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+}
+
 const welcomeModal = document.getElementById('welcome-modal');
 if (welcomeModal) {
   const STORAGE_KEY = 'mh_welcome_seen_v1';
