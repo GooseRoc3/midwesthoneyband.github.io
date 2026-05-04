@@ -1,0 +1,32 @@
+{% assign is_band = page.section == "band" %}
+{% if is_band %}{% assign prefix = "index.html" %}{% else %}{% assign prefix = "" %}{% endif %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <link rel="icon" type="image/png" href="images/logo-square.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  {% include nav.html %}
+</header>
+
+<main>
+{{ content }}
+</main>
+
+{% include footer.html %}
+
+{% include welcome-modal.html %}
+
+<script src="script.js"></script>
+</body>
+</html>

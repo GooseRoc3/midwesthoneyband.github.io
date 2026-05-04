@@ -1,42 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meet the Band — Midwest Honey</title>
-  <meta name="description" content="Meet the six musicians of Midwest Honey, Chicago's pop rock and punk cover band.">
-  <link rel="icon" type="image/png" href="images/logo-square.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<header class="site-header">
-  <div class="nav">
-    <a href="index.html" class="logo">
-      <span class="logo-line logo-line-1">Midwest</span>
-      <span class="logo-line logo-line-2">Honey</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li class="nav-group">
-        <a href="index.html">Home</a>
-        <span class="nav-sep" aria-hidden="true">•</span>
-        <a href="index.html#shows" class="nav-sub">Shows</a>
-        <span class="nav-sep" aria-hidden="true">•</span>
-        <a href="index.html#gallery" class="nav-sub">Gallery</a>
-      </li>
-      <li><a href="band.html" aria-current="page">Community</a></li>
-    </ul>
-    <a href="index.html#contact" class="btn btn-cta-header">Contact Us</a>
-  </div>
-</header>
-
-<main>
+---
+layout: default
+title: "Meet the Band — Midwest Honey"
+description: "Meet the six musicians of Midwest Honey, Chicago's pop rock and punk cover band."
+section: band
+---
 
 <!-- ABOUT -->
 <section id="about" class="about">
@@ -170,60 +137,3 @@
     </div>
   </div>
 </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <div class="logo">
-        <span class="logo-line logo-line-1">Midwest</span>
-        <span class="logo-line logo-line-2">Honey</span>
-      </div>
-      <p class="muted">Chicago Cover Band</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="band.html">Community</a></li>
-        <li><a href="index.html#shows">Shows</a></li>
-        <li><a href="index.html#gallery">Gallery</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:contact@midwesthoneyband.com">contact@midwesthoneyband.com</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Follow</h4>
-      <ul class="social">
-        <li><a href="https://instagram.com/midwesthoneyband" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="container footer-bottom">
-    <p>© <span id="year"></span> Midwest Honey. All rights reserved.</p>
-  </div>
-</footer>
-
-<div id="welcome-modal" class="modal" hidden>
-  <div class="modal-overlay" data-close></div>
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
-    <button class="modal-close" data-close aria-label="Close">&times;</button>
-    <p class="eyebrow">Next Show</p>
-    <h2 id="welcome-title">Catch Us Live</h2>
-    <p class="modal-detail">Phyllis's Musical Inn &middot; May 6 &middot; 8 PM</p>
-    <p class="modal-sub">Chicago, IL &middot; Free</p>
-    <div class="modal-actions">
-      <a href="index.html#shows" class="btn btn-primary" data-close>See All Shows</a>
-      <a href="https://instagram.com/midwesthoneyband" target="_blank" rel="noopener" class="btn btn-ghost">Follow on Instagram</a>
-    </div>
-  </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
