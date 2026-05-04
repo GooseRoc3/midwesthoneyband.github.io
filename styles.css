@@ -359,7 +359,7 @@ section { padding: 96px 0; }
 
 /* sound */
 .sound {
-  background: var(--bg);
+  background: rgba(255, 245, 56, 0.04);
   padding: 16px 0 56px;
 }
 .sound-blurb {
@@ -642,7 +642,7 @@ section { padding: 96px 0; }
 }
 
 /* gallery */
-.gallery { background: var(--bg-2); }
+.gallery { background: rgba(255, 0, 111, 0.05); }
 /* contact */
 .contact { background: var(--bg); }
 .contact-grid {
