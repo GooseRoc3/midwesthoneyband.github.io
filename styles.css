@@ -195,7 +195,7 @@ p { margin: 0 0 16px; }
   display: flex;
   gap: 28px;
   list-style: none;
-  margin: 0 0 0 auto;
+  margin: 0 auto;
   padding: 0;
   align-items: center;
 }
@@ -359,8 +359,8 @@ section { padding: 96px 0; }
 
 /* sound */
 .sound {
-  background: rgba(255, 245, 56, 0.04);
-  padding: 16px 0 56px;
+  background: var(--bg-2);
+  padding: 36px 0;
 }
 .sound-blurb {
   max-width: 720px;
@@ -642,7 +642,7 @@ section { padding: 96px 0; }
 }
 
 /* gallery */
-.gallery { background: rgba(255, 0, 111, 0.05); }
+.gallery { background: var(--bg-2); }
 /* contact */
 .contact { background: var(--bg); }
 .contact-grid {
