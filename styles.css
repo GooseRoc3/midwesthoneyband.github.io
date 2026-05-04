@@ -209,6 +209,21 @@ p { margin: 0 0 16px; }
   letter-spacing: 0.18em;
   transition: color 0.15s, text-shadow 0.15s;
 }
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-links a.nav-sub {
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+}
+.nav-sep {
+  color: var(--muted);
+  font-size: 0.85rem;
+  user-select: none;
+  pointer-events: none;
+}
 .nav-links a:hover {
   color: var(--highlight);
   text-shadow: 2px 2px 0 var(--accent);
