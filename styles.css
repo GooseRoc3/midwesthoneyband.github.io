@@ -162,11 +162,11 @@ p { margin: 0 0 16px; }
     top: 50%;
     transform: translateY(-50%);
   }
-  .nav-links > li.nav-group {
+  .nav-links > li:first-child {
     right: 50%;
     margin-right: 32px;
   }
-  .nav-links > li:not(.nav-group) {
+  .nav-links > li:last-child {
     left: 50%;
     margin-left: 32px;
   }

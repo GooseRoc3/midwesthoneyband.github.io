@@ -1,5 +1,5 @@
 {% assign is_band = page.section == "band" %}
-{% if is_band %}{% assign prefix = "index.html" %}{% else %}{% assign prefix = "" %}{% endif %}
+{% if is_band %}{% assign prefix = "index.html" %}{% assign band_prefix = "" %}{% else %}{% assign prefix = "" %}{% assign band_prefix = "band.html" %}{% endif %}
 <!doctype html>
 <html lang="en">
 <head>

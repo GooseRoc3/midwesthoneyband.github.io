@@ -14,7 +14,13 @@
       <span class="nav-sep" aria-hidden="true">&bull;</span>
       <a href="{{ prefix }}#gallery" class="nav-sub">Gallery</a>
     </li>
-    <li><a href="band.html"{% if is_band %} aria-current="page"{% endif %}>Community</a></li>
+    <li class="nav-group">
+      <a href="band.html"{% if is_band %} aria-current="page"{% endif %}>Community</a>
+      <span class="nav-sep" aria-hidden="true">&bull;</span>
+      <a href="{{ band_prefix }}#about" class="nav-sub">About</a>
+      <span class="nav-sep" aria-hidden="true">&bull;</span>
+      <a href="{{ band_prefix }}#friends" class="nav-sub">Friends</a>
+    </li>
   </ul>
   <a href="{{ prefix }}#contact" class="btn btn-cta-header">Contact Us</a>
 </div>
