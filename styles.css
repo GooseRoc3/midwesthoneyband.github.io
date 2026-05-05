@@ -658,8 +658,8 @@ section { padding: 96px 0; }
   font-family: var(--display);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 1.15rem;
-  color: var(--accent);
+  font-size: 1.1rem;
+  color: var(--white);
   margin-bottom: 4px;
 }
 .shows-table .show-when {
@@ -667,11 +667,11 @@ section { padding: 96px 0; }
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.9rem;
-  color: var(--accent-2);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 2px;
 }
 .shows-table .show-where {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
 }
 .shows-table tr:hover td { background: var(--bg-3); }
