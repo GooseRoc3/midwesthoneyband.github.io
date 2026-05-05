@@ -751,6 +751,14 @@ section { padding: 96px 0; }
   border-color: var(--accent);
 }
 .contact-form textarea { resize: vertical; }
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .contact-form .form-row { grid-template-columns: 1fr; }
+}
 
 /* footer */
 .site-footer {

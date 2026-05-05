@@ -89,10 +89,14 @@ section: home
       </ul>
     </div>
     <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <label>Name<input type="text" name="name" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Phone<input type="tel" name="phone" required></label>
-      <label>Event / Venue Name<input type="text" name="event_venue" required></label>
+      <div class="form-row">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Event / Venue Name<input type="text" name="event_venue" required></label>
+      </div>
+      <div class="form-row">
+        <label>Email<input type="email" name="email" required></label>
+        <label>Phone<input type="tel" name="phone" required></label>
+      </div>
       <label>Message<textarea name="message" rows="5" required></textarea></label>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
