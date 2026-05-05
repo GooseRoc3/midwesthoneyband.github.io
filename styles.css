@@ -405,11 +405,14 @@ section { padding: 96px 0; }
 }
 
 /* about */
-.about { background: var(--bg-2); }
+.about {
+  background: var(--bg-2);
+  padding: 64px 0;
+}
 .about-intro {
   max-width: 720px;
-  margin: 0 auto 56px;
-  font-size: 1.1rem;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
   color: var(--muted);
 }
 /* member carousel */
@@ -421,18 +424,18 @@ section { padding: 96px 0; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   border-bottom: 2px solid var(--border);
 }
 .tab {
   background: transparent;
   border: none;
   color: var(--muted);
-  padding: 14px 22px;
+  padding: 10px 16px;
   font-family: var(--display);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 1rem;
+  letter-spacing: 0.16em;
+  font-size: 0.9rem;
   cursor: pointer;
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
@@ -456,10 +459,10 @@ section { padding: 96px 0; }
   flex: 0 0 100%;
   min-width: 0;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 48px;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
   align-items: center;
-  padding: 40px;
+  padding: 24px;
   background: var(--bg-3);
   border: 2px solid var(--white);
   box-shadow: 8px 8px 0 var(--accent);
@@ -490,36 +493,38 @@ section { padding: 96px 0; }
 .member-role {
   font-family: var(--display);
   text-transform: uppercase;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   color: var(--accent-2);
-  font-size: 1rem;
-  margin: 0 0 8px;
+  font-size: 0.85rem;
+  margin: 0 0 6px;
 }
 .member-info h3.member-name {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   line-height: 1;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
-.member-bio { margin: 0 0 16px; }
+.member-bio { margin: 0 0 12px; }
 .member-info .highlights { margin: 0; }
 
 .highlights {
   list-style: none;
   padding: 0;
-  margin: 24px 0 32px;
+  margin: 12px 0 0;
+  font-size: 0.95rem;
 }
 .highlights li {
-  padding: 8px 0 8px 28px;
+  padding: 5px 0 5px 24px;
   position: relative;
   font-weight: 600;
+  line-height: 1.4;
 }
 .highlights li::before {
   content: "✦";
   color: var(--accent);
   position: absolute;
   left: 0;
-  font-size: 1.1rem;
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* carousel controls */
