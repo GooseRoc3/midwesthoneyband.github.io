@@ -13,6 +13,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+const upcomingTbody = document.querySelector('#shows-upcoming tbody');
+const pastTbody = document.querySelector('#shows-past tbody');
+const pastSection = document.getElementById('past-shows');
+if (upcomingTbody && pastTbody && pastSection) {
+  const today = new Date().toISOString().slice(0, 10);
+  const dated = Array.from(upcomingTbody.querySelectorAll('tr[data-date]'));
+  const pastRows = dated.filter(r => r.dataset.date < today)
+    .sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
+  pastRows.forEach(r => pastTbody.appendChild(r));
+  if (pastTbody.children.length > 0) pastSection.hidden = false;
+}
+
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 const sections = document.querySelectorAll('section[id]');
 if (navAnchors.length && sections.length) {

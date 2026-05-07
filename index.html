@@ -33,12 +33,12 @@ section: home
   <div class="container">
     <p class="eyebrow center">Upcoming Shows</p>
     <h2 class="center">Catch Us Live</h2>
-    <table class="shows-table">
+    <table id="shows-upcoming" class="shows-table">
       <thead>
         <tr><th>Show</th><th class="ticket-col">Tickets</th></tr>
       </thead>
       <tbody>
-        <tr>
+        <tr data-date="2026-05-06">
           <td>
             <div class="show-venue">Phyllis's Musical Inn</div>
             <div class="show-when">May 6 &middot; 8 PM</div>
@@ -46,7 +46,7 @@ section: home
           </td>
           <td class="ticket-col">Free</td>
         </tr>
-        <tr>
+        <tr data-date="2026-05-24">
           <td>
             <div class="show-venue">Harrigan's</div>
             <div class="show-when">May 24 &middot; 5 PM</div>
@@ -54,7 +54,7 @@ section: home
           </td>
           <td class="ticket-col">Free</td>
         </tr>
-        <tr>
+        <tr data-date="2026-07-23">
           <td>
             <div class="show-venue">Montrose Saloon</div>
             <div class="show-when">July 23</div>
@@ -63,6 +63,20 @@ section: home
           <td class="ticket-col">$15 Cover</td>
         </tr>
       </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PAST SHOWS -->
+<section id="past-shows" class="shows" hidden>
+  <div class="container">
+    <p class="eyebrow center">Past Shows</p>
+    <h2 class="center">Where We've Been</h2>
+    <table id="shows-past" class="shows-table">
+      <thead>
+        <tr><th>Show</th><th class="ticket-col">Tickets</th></tr>
+      </thead>
+      <tbody></tbody>
     </table>
   </div>
 </section>
