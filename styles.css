@@ -647,7 +647,7 @@ section { padding: 96px 0; }
   box-shadow: 8px 8px 0 var(--accent);
 }
 .shows-table th, .shows-table td {
-  padding: 18px 16px;
+  padding: 10px 16px;
   text-align: left;
   border-bottom: 1px solid var(--border);
 }
@@ -672,20 +672,22 @@ section { padding: 96px 0; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 1.1rem;
+  line-height: 1.2;
   color: var(--white);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .shows-table .show-when {
   font-family: var(--display);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.9rem;
+  line-height: 1.2;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 2px;
 }
 .shows-table .show-where {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
+  line-height: 1.2;
 }
 .shows-table tr:hover td { background: var(--bg-3); }
 .shows-table a {
