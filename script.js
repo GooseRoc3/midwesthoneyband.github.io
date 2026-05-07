@@ -48,23 +48,41 @@ if (navAnchors.length && sections.length) {
 
 const welcomeModal = document.getElementById('welcome-modal');
 if (welcomeModal) {
-  const STORAGE_KEY = 'mh_welcome_seen_v1';
-  const closeModal = () => {
-    welcomeModal.hidden = true;
-    document.body.classList.remove('modal-open');
-    try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
-  };
-  let seen = false;
-  try { seen = localStorage.getItem(STORAGE_KEY) === '1'; } catch {}
-  if (!seen) {
-    welcomeModal.hidden = false;
-    document.body.classList.add('modal-open');
-    welcomeModal.querySelectorAll('[data-close]').forEach(el => {
-      el.addEventListener('click', closeModal);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !welcomeModal.hidden) closeModal();
-    });
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const futureRows = Array.from(document.querySelectorAll('#shows-upcoming tbody tr[data-date]'))
+    .filter(r => r.dataset.date >= todayIso)
+    .sort((a, b) => a.dataset.date.localeCompare(b.dataset.date));
+  const nextShow = futureRows[0];
+
+  if (nextShow) {
+    const STORAGE_KEY = 'mh_welcome_seen_' + nextShow.dataset.date;
+    let seen = false;
+    try { seen = localStorage.getItem(STORAGE_KEY) === '1'; } catch {}
+
+    if (!seen) {
+      const venue = nextShow.querySelector('.show-venue')?.textContent.trim() || '';
+      const when = nextShow.querySelector('.show-when')?.textContent.trim() || '';
+      const where = nextShow.querySelector('.show-where')?.textContent.trim() || '';
+      const tickets = nextShow.querySelector('.ticket-col')?.textContent.trim() || '';
+      const detailEl = welcomeModal.querySelector('.modal-detail');
+      const subEl = welcomeModal.querySelector('.modal-sub');
+      if (detailEl) detailEl.textContent = [venue, when].filter(Boolean).join(' · ');
+      if (subEl) subEl.textContent = [where, tickets].filter(Boolean).join(' · ');
+
+      const closeModal = () => {
+        welcomeModal.hidden = true;
+        document.body.classList.remove('modal-open');
+        try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
+      };
+      welcomeModal.hidden = false;
+      document.body.classList.add('modal-open');
+      welcomeModal.querySelectorAll('[data-close]').forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !welcomeModal.hidden) closeModal();
+      });
+    }
   }
 }
 
