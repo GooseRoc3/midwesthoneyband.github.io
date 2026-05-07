@@ -665,6 +665,7 @@ section { padding: 96px 0; }
   text-align: right;
   white-space: nowrap;
 }
+#shows-past .ticket-col { display: none; }
 .shows-table .show-venue {
   font-family: var(--display);
   text-transform: uppercase;
