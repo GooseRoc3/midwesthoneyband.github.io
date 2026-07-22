@@ -1,0 +1,75 @@
+---
+layout: default
+title: "Photos — Midwest Honey"
+description: "Live photos from Midwest Honey shows around Chicago, gig by gig."
+section: photos
+
+# ---------------------------------------------------------------------------
+# Adding a gig: copy a block below and put it at the TOP of the list.
+# Newest show first — the page renders them in the order written here.
+#
+#   credit  - Instagram handle without the @. Omit if you don't have one.
+#   photos  - every photo for this gig that you want on the site. Files live
+#             in images/gallery/ and follow the naming rule in PHOTOS.md.
+# ---------------------------------------------------------------------------
+gigs:
+  - venue: "Phyllis' Musical Inn"
+    date: "May 6, 2026"
+    location: "Chicago, IL"
+    credit: "bcaldrone.photography"
+    photos:
+      - file: "2026-05-06-phyllis-01.jpg"
+        alt: "A packed room at a Midwest Honey show at Phyllis' Musical Inn"
+      - file: "2026-05-06-phyllis-07.jpg"
+        alt: "Midwest Honey's singer with a fist raised mid-song"
+      - file: "2026-05-06-phyllis-06.jpg"
+        alt: "Guitarist and drummer mid-set under red stage light"
+      - file: "2026-05-06-phyllis-05.jpg"
+        alt: "Midwest Honey's singer at the mic, flanked by bass and guitar"
+      - file: "2026-05-06-phyllis-02.jpg"
+        alt: "Someone in the crowd filming Midwest Honey on a phone"
+      - file: "2026-05-06-phyllis-04.jpg"
+        alt: "Bassist and drummer during a Midwest Honey set"
+---
+
+<!-- PAGE INTRO -->
+<section class="photos-intro">
+  <div class="container center">
+    <p class="eyebrow">Photos</p>
+    <h2>Every Night So Far</h2>
+    <p class="about-intro center">Shot by the photographers who came out to see us. Find yourself in the crowd, grab what you like, and tag the photographer — not us — when you post it.</p>
+  </div>
+</section>
+
+<!-- GIGS -->
+<section class="gallery">
+  <div class="container">
+    {% for gig in page.gigs %}
+    <div class="gig">
+      <h3 class="gallery-group-title">{{ gig.venue }}</h3>
+      <p class="gig-meta">
+        {{ gig.date }}{% if gig.location %} &middot; {{ gig.location }}{% endif %}{% if gig.credit %} &middot; Photos by <a href="https://instagram.com/{{ gig.credit }}" target="_blank" rel="noopener">@{{ gig.credit }}</a>{% endif %}
+      </p>
+      <div class="gallery-grid">
+        {% for photo in gig.photos %}
+        <figure class="gallery-item">
+          <img src="images/gallery/{{ photo.file }}" alt="{{ photo.alt }}" loading="lazy" decoding="async">
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PHOTOGRAPHERS -->
+<section class="contact">
+  <div class="container center">
+    <p class="eyebrow">Shooters Welcome</p>
+    <h2>SHOT US LIVE?</h2>
+    <p>If you photographed one of our sets, send them over and we'll credit you here and everywhere we post them.</p>
+    <ul class="contact-info">
+      <li><strong>Email:</strong> <a href="mailto:contact@midwesthoneyband.com">contact@midwesthoneyband.com</a></li>
+    </ul>
+  </div>
+</section>

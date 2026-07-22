@@ -735,6 +735,25 @@ section { padding: 96px 0; }
   text-decoration: none;
 }
 .gallery-item figcaption a:hover { opacity: 1; }
+.gallery-more { margin-top: 40px; }
+
+/* photos page */
+.photos-intro { background: var(--bg); padding-bottom: 0; }
+.gig + .gig {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+.gig-meta {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.gig-meta a { color: inherit; text-decoration: none; }
+.gig-meta a:hover { color: var(--accent); }
+
 /* contact */
 .contact { background: var(--bg); }
 .contact-info {

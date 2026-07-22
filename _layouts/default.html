@@ -1,4 +1,4 @@
-{% if page.section == "band" %}{% assign is_band = true %}{% assign prefix = "index.html" %}{% assign band_prefix = "" %}{% else %}{% assign is_band = false %}{% assign prefix = "" %}{% assign band_prefix = "band.html" %}{% endif %}
+{% if page.section == "band" %}{% assign is_band = true %}{% else %}{% assign is_band = false %}{% endif %}{% if page.section == "photos" %}{% assign is_photos = true %}{% else %}{% assign is_photos = false %}{% endif %}{% if page.section == "home" %}{% assign prefix = "" %}{% else %}{% assign prefix = "index.html" %}{% endif %}{% if is_band %}{% assign band_prefix = "" %}{% else %}{% assign band_prefix = "band.html" %}{% endif %}
 <!doctype html>
 <html lang="en">
 <head>

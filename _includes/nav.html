@@ -13,6 +13,8 @@
       <a href="{{ prefix }}#shows" class="nav-sub">Shows</a>
       <span class="nav-sep" aria-hidden="true">&bull;</span>
       <a href="{{ prefix }}#gallery" class="nav-sub">Gallery</a>
+      <span class="nav-sep" aria-hidden="true">&bull;</span>
+      <a href="photos.html" class="nav-sub"{% if is_photos %} aria-current="page"{% endif %}>Photos</a>
     </li>
     <li class="nav-group">
       <a href="band.html"{% if is_band %} aria-current="page"{% endif %}>Community</a>
