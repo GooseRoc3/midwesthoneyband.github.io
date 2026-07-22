@@ -44,8 +44,9 @@ G:\My Drive\
 │       │   ├── raw\        as-received from the photographer, full resolution
 │       │   └── web\        resized copies, these get committed to the repo
 │       └── Videos\
-├── Images\                 logos and brand assets
-├── Press Kit\              bio, hi-res promo, stage plot, one-sheet
+├── Press Kit\              logos and brand assets, bio, stage plot, one-sheet
+│   ├── Band Photos\        member portraits used on band.html
+│   └── Friends\
 ├── Admin\                  contracts, invoices, setlists
 └── Inbox\                  anything not yet sorted — drain it monthly
 ```
