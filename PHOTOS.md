@@ -28,6 +28,7 @@ Example: `2026-05-06-phyllis-01.jpg`
 |---|---|
 | Phyllis' Musical Inn | `phyllis` |
 | Harrigan's | `harrigans` |
+| Lakeview Porchfest | `lakeview` |
 | Weeds Tavern | `weeds` |
 | Montrose Saloon | `montrose` |
 
