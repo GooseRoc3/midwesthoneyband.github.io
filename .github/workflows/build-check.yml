@@ -1,0 +1,47 @@
+name: Build check
+
+# Runs on every branch, unlike the Pages deploy which only builds `main`.
+# Catches Liquid and front-matter errors before they can take the live site
+# down on merge.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - name: Install Jekyll
+        run: gem install jekyll --no-document
+
+      - name: Build
+        run: jekyll build --strict_front_matter --trace
+
+      - name: Photos page rendered its gig loop
+        run: |
+          test -f _site/photos.html
+          n=$(grep -c 'images/gallery/2026-05-06-phyllis-' _site/photos.html)
+          echo "photo tags rendered: $n (expected 6)"
+          test "$n" -eq 6
+
+      - name: Cross-page links resolve to index.html, not bare anchors
+        run: |
+          grep -q 'href="index.html#shows"' _site/photos.html
+          grep -q 'href="index.html#shows"' _site/band.html
+          grep -q 'href="#shows"' _site/index.html
+
+      - name: Every referenced image exists in the build
+        run: |
+          missing=0
+          for f in $(grep -ohr 'images/gallery/[A-Za-z0-9._-]*\.jpg' _site/*.html | sort -u); do
+            if [ ! -f "_site/$f" ]; then echo "MISSING $f"; missing=1; fi
+          done
+          test "$missing" -eq 0
