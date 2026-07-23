@@ -3,6 +3,23 @@ layout: default
 title: "Meet the Band — Midwest Honey"
 description: "Meet the six musicians of Midwest Honey, Chicago's pop rock and punk cover band."
 section: band
+
+# ---------------------------------------------------------------------------
+# Friends of the Band. To add someone, copy a block and fill in the fields.
+# Order here is the order they appear on the page.
+#
+#   role      - one short line, e.g. "Photographer", "Venue", "DJ"
+#   photo     - filename in images/friends/. Crop SQUARE (~800x800) before
+#               export or the card will center-crop it. See PHOTOS.md.
+#   instagram - handle without the @. Omit the line if they don't have one.
+#   blurb     - a sentence or two.
+# ---------------------------------------------------------------------------
+friends:
+  - name: "Bobby Caldrone"
+    role: "Photographer"
+    photo: "bobby.jpg"
+    instagram: "bcaldrone.photography"
+    blurb: "Chicago-based concert photographer with a background in travel and street photography focused on capturing the energy and atmosphere of live shows for local artists."
 ---
 
 <!-- ABOUT -->
@@ -127,13 +144,15 @@ section: band
     <h2 class="center">Local Artists &amp; Creatives</h2>
     <p class="about-intro center">Community is at the heart of everything we do. It's important to support other local creative endeavors of all kinds. We encourage you to check out some of the other Chicago-based projects below.<br><br>If you're interested in being featured here, reach out to us on Instagram!</p>
     <div class="friend-grid">
+      {% for friend in page.friends %}
       <article class="friend-card">
-        <div class="friend-photo"><img src="images/friends/bobby.jpg" alt="Bobby Caldrone" loading="lazy" decoding="async"></div>
-        <p class="friend-role">Photographer</p>
-        <h3>Bobby Caldrone</h3>
-        <p>Chicago-based concert photographer with a background in travel and street photography focused on capturing the energy and atmosphere of live shows for local artists.</p>
-        <p><a href="https://instagram.com/bcaldrone.photography" target="_blank" rel="noopener">@bcaldrone.photography &rarr;</a></p>
+        <div class="friend-photo"><img src="images/friends/{{ friend.photo }}" alt="{{ friend.name }}" loading="lazy" decoding="async"></div>
+        <p class="friend-role">{{ friend.role }}</p>
+        <h3>{{ friend.name }}</h3>
+        <p>{{ friend.blurb }}</p>
+        {% if friend.instagram %}<p><a href="https://instagram.com/{{ friend.instagram }}" target="_blank" rel="noopener">@{{ friend.instagram }} &rarr;</a></p>{% endif %}
       </article>
+      {% endfor %}
     </div>
   </div>
 </section>

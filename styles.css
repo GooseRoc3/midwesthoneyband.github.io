@@ -334,6 +334,13 @@ p { margin: 0 0 16px; }
   margin-top: 16px;
   margin-bottom: 0;
 }
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
 .hero h1 .accent {
   color: var(--highlight);
   font-size: 0.95em;
@@ -391,6 +398,15 @@ section { padding: 96px 0; }
   background: var(--bg-2);
   padding: 36px 0;
 }
+.sound-meet {
+  margin-top: 18px;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+}
+.sound-meet a { color: var(--accent); text-decoration: none; }
+.sound-meet a:hover { color: var(--accent-2); }
 /* full-bleed live strip */
 .live-strip {
   padding: 0;
@@ -771,7 +787,43 @@ section { padding: 96px 0; }
 .gig-meta a:hover { color: var(--accent); }
 
 /* contact */
+.shows-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 8px auto 0;
+  max-width: 560px;
+}
+.shows-empty a { color: var(--accent); text-decoration: none; }
+.shows-empty a:hover { color: var(--accent-2); }
+
+/* book us */
 .contact { background: var(--bg); }
+.book-points {
+  list-style: none;
+  padding: 0;
+  margin: 28px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+  max-width: 640px;
+}
+.book-points li {
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  color: var(--text);
+  border: 2px solid var(--white);
+  box-shadow: 4px 4px 0 var(--accent);
+  padding: 8px 16px;
+}
+
+/* follow */
+.follow { background: var(--bg-2); }
+.follow .btn { margin-top: 24px; }
+
 .contact-info {
   list-style: none;
   padding: 0;

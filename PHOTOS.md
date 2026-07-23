@@ -79,6 +79,17 @@ Viewer* and send the link directly. **Test any such link in an incognito
 window first:** a link that works while you're signed in as the owner often
 shows everyone else a "Request access" wall.
 
+## Friends of the Band
+
+Friends are edited in the front matter at the top of `band.html` — one YAML
+block per person, no HTML. Add someone by copying a block and filling in the
+fields; the order in the file is the order on the page.
+
+Their photo goes in `Press Kit/Friends/` in Drive, with a web copy in
+`images/friends/` in the repo. The card frame is **square**, so crop to a
+square (~800x800, ~150 KB) before export — a tall or wide photo gets
+center-cropped and usually loses the top of someone's head.
+
 ## Size budget
 
 Web copies target ~200 KB. The whole `images/` tree was 2.7 MB at six photos;

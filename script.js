@@ -23,6 +23,13 @@ if (upcomingTbody && pastTbody && pastSection) {
     .sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
   pastRows.forEach(r => pastTbody.appendChild(r));
   if (pastTbody.children.length > 0) pastSection.hidden = false;
+
+  if (upcomingTbody.children.length === 0) {
+    const upcomingTable = document.getElementById('shows-upcoming');
+    const upcomingEmpty = document.querySelector('.shows-empty');
+    if (upcomingTable) upcomingTable.hidden = true;
+    if (upcomingEmpty) upcomingEmpty.hidden = false;
+  }
 }
 
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
