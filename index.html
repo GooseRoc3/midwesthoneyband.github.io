@@ -3,6 +3,21 @@ layout: default
 title: "Midwest Honey | Chicago Pop Rock & Punk Cover Band"
 description: "Chicago pop rock and punk cover band playing hits from 1990 to today. Book us for bars, clubs, and private events."
 section: home
+
+# ---------------------------------------------------------------------------
+# Testimonials. The section is HIDDEN until this list has entries, so no
+# placeholder quote ever ships. To add one, replace [] with entries like:
+#
+# testimonials:
+#   - quote: "Their words. Do NOT wrap the sentence in quote marks."
+#     name: "Who said it. Keep it loose for privacy, e.g. Corporate party, Chicago."
+#   - quote: "Second one."
+#     name: "Booking, Phyllis' Musical Inn"
+#
+# Match the source to the buyer: a venue quote sells venues, a wedding or
+# host quote sells private events. One good quote beats three weak ones.
+# ---------------------------------------------------------------------------
+testimonials: []
 ---
 
 <!-- HERO -->
@@ -139,6 +154,24 @@ section: home
     <p class="center gallery-more"><a href="photos.html" class="btn btn-ghost">All Show Photos</a></p>
   </div>
 </section>
+
+<!-- TESTIMONIALS -->
+{% if page.testimonials.size > 0 %}
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <p class="eyebrow center">Word of Mouth</p>
+    <h2 class="center">What They're Saying</h2>
+    <div class="quote-grid">
+      {% for t in page.testimonials %}
+      <figure class="quote-card">
+        <blockquote>{{ t.quote }}</blockquote>
+        {% if t.name %}<figcaption>{{ t.name }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <!-- BOOK US -->
 <section id="book" class="contact">

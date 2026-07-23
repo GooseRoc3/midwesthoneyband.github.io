@@ -797,6 +797,52 @@ section { padding: 96px 0; }
 .shows-empty a { color: var(--accent); text-decoration: none; }
 .shows-empty a:hover { color: var(--accent-2); }
 
+/* testimonials */
+.testimonials { background: var(--bg); }
+.quote-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 32px;
+}
+.quote-card {
+  position: relative;
+  flex: 1 1 300px;
+  max-width: 420px;
+  margin: 0;
+  padding: 28px;
+  background: var(--bg-3);
+  border: 2px solid var(--white);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+.quote-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 2px;
+  left: 14px;
+  font-family: var(--display);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.5;
+}
+.quote-card blockquote {
+  margin: 0;
+  padding-top: 20px;
+  font-size: 1.12rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.quote-card figcaption {
+  margin-top: 16px;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+}
+
 /* book us */
 .contact { background: var(--bg); }
 .book-points {
