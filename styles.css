@@ -736,13 +736,19 @@ section { padding: 96px 0; }
 
 /* gallery */
 .gallery { background: var(--bg-2); }
+/* Masonry columns: mixed portrait/landscape shots pack with no dead space
+   and no cropping. Falls back gracefully on old browsers to a single column. */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  column-width: 300px;
+  column-gap: 24px;
   margin-top: 32px;
 }
-.gallery-item { margin: 0; }
+.gallery-item {
+  margin: 0 0 24px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
 .gallery-item img {
   width: 100%;
   height: auto;
