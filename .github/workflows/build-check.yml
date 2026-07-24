@@ -45,3 +45,9 @@ jobs:
             if [ ! -f "_site/$f" ]; then echo "MISSING $f"; missing=1; fi
           done
           test "$missing" -eq 0
+
+      - name: Hero video and poster exist in the build
+        run: |
+          grep -q 'media/montrose-loop.mp4' _site/index.html
+          test -f _site/media/montrose-loop.mp4
+          test -f _site/media/montrose-loop-poster.jpg
