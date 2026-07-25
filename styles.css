@@ -311,9 +311,11 @@ p { margin: 0 0 16px; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  /* No photo here by default: the video (with its poster) covers the hero, so
+     loading a background image everyone would download but never see is waste.
+     The crisp still is loaded only in the reduced-motion path below. */
   background:
     radial-gradient(ellipse at top, rgba(255, 0, 111, 0.18), transparent 60%),
-    url("images/gallery/2026-05-06-phyllis-01.jpg") center/cover no-repeat,
     linear-gradient(180deg, #000 0%, #0a0a0a 100%);
 }
 .hero-video {
@@ -324,9 +326,17 @@ p { margin: 0 0 16px; }
   object-fit: cover;
   z-index: 0;
 }
-/* Honor reduced-motion: hide the clip and fall back to the hero's crowd photo. */
+/* Honor reduced-motion: hide the clip and show a crisp still instead. This is
+   the only path that loads the background photo, so it can afford to be large
+   (3200px) and stay sharp on high-DPI displays. */
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
+  .hero {
+    background:
+      radial-gradient(ellipse at top, rgba(255, 0, 111, 0.18), transparent 60%),
+      url("images/hero-crowd.jpg") center/cover no-repeat,
+      linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+  }
 }
 .hero-overlay {
   position: absolute;
