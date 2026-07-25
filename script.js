@@ -129,3 +129,91 @@ if (carousel) {
 
   update();
 }
+
+// Lightbox: click any [data-full] image to view it large, with prev/next.
+const lbThumbs = Array.from(document.querySelectorAll('[data-full]'));
+if (lbThumbs.length) {
+  const items = lbThumbs.map(img => ({
+    full: img.getAttribute('data-full'),
+    thumb: img.currentSrc || img.src,
+    alt: img.getAttribute('alt') || '',
+    credit: img.closest('figure')?.querySelector('figcaption')?.innerHTML || ''
+  }));
+  const single = items.length < 2;
+
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.hidden = true;
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', 'Photo viewer');
+  lb.innerHTML =
+    '<button class="lb-close" aria-label="Close">&times;</button>' +
+    '<button class="lb-prev" aria-label="Previous photo">&#8249;</button>' +
+    '<button class="lb-next" aria-label="Next photo">&#8250;</button>' +
+    '<figure class="lb-figure"><img class="lb-img" alt=""><figcaption class="lb-cap"></figcaption></figure>';
+  document.body.appendChild(lb);
+
+  const lbImg = lb.querySelector('.lb-img');
+  const lbCap = lb.querySelector('.lb-cap');
+  const btnClose = lb.querySelector('.lb-close');
+  const btnPrev = lb.querySelector('.lb-prev');
+  const btnNext = lb.querySelector('.lb-next');
+  if (single) { btnPrev.hidden = true; btnNext.hidden = true; }
+
+  let idx = 0, lastFocus = null;
+
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    const it = items[idx];
+    lbImg.src = it.thumb;              // instant: the already-loaded thumbnail
+    lbImg.alt = it.alt;
+    const pre = new Image();           // then swap to the full-size once it loads
+    pre.onload = () => { if (items[idx] === it) lbImg.src = it.full; };
+    pre.src = it.full;
+    lbCap.innerHTML = it.credit ? it.alt + ' &middot; ' + it.credit : it.alt;
+    if (!single) [idx + 1, idx - 1].forEach(n => { new Image().src = items[(n + items.length) % items.length].full; });
+  }
+  function openAt(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    lb.hidden = false;
+    document.body.classList.add('modal-open');
+    btnClose.focus();
+  }
+  function close() {
+    lb.hidden = true;
+    document.body.classList.remove('modal-open');
+    lbImg.removeAttribute('src');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  lbThumbs.forEach((img, i) => {
+    img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.addEventListener('click', () => openAt(i));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAt(i); }
+    });
+  });
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', () => show(idx - 1));
+  btnNext.addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', e => {
+    if (!e.target.closest('.lb-img, .lb-prev, .lb-next, .lb-close')) close();
+  });
+  document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft' && !single) show(idx - 1);
+    else if (e.key === 'ArrowRight' && !single) show(idx + 1);
+  });
+  let sx = null;
+  lb.addEventListener('touchstart', e => { sx = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (sx === null || single) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    sx = null;
+  }, { passive: true });
+}

@@ -51,3 +51,11 @@ jobs:
           grep -q 'media/montrose-loop.mp4' _site/index.html
           test -f _site/media/montrose-loop.mp4
           test -f _site/media/montrose-loop-poster.jpg
+
+      - name: Every lightbox (data-full) image exists in the build
+        run: |
+          missing=0
+          for f in $(grep -ohrE 'data-full="[^"]+"' _site/*.html | sed -E 's/data-full="//;s/"//' | sort -u); do
+            if [ ! -f "_site/$f" ]; then echo "MISSING $f"; missing=1; fi
+          done
+          test "$missing" -eq 0

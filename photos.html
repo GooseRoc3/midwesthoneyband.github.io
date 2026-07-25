@@ -65,7 +65,7 @@ gigs:
       <div class="gallery-grid">
         {% for photo in gig.photos %}
         <figure class="gallery-item">
-          <img src="images/gallery/{{ photo.file }}" alt="{{ photo.alt }}" loading="lazy" decoding="async">
+          <img src="images/gallery/{{ photo.file }}" data-full="images/gallery/full/{{ photo.file }}" alt="{{ photo.alt }}" loading="lazy" decoding="async">
         </figure>
         {% endfor %}
       </div>
