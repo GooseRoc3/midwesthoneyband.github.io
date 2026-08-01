@@ -919,6 +919,45 @@ section { padding: 96px 0; }
 /* follow */
 .follow { background: var(--bg-2); }
 .follow .btn { margin-top: 24px; }
+.newsletter {
+  max-width: 440px;
+  margin: 36px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.newsletter-label {
+  display: block;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.newsletter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.newsletter-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 12px 14px;
+  background: var(--bg-3);
+  border: 2px solid var(--white);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1rem;
+}
+.newsletter-input::placeholder { color: var(--muted); }
+.newsletter-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.newsletter .btn { margin-top: 0; }
+.newsletter-fine {
+  margin: 14px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
 
 .contact-info {
   list-style: none;
