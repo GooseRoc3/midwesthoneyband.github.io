@@ -217,3 +217,59 @@ if (lbThumbs.length) {
     sx = null;
   }, { passive: true });
 }
+
+// Newsletter: submit to MailerLite's JSONP endpoint from our own code (no
+// MailerLite scripts), so we can read the real result and show it inline
+// instead of dumping raw JSON in a new tab. Falls back to the plain form
+// POST if JavaScript is off.
+const nlForm = document.querySelector('form.newsletter');
+if (nlForm) {
+  const emailInput = nlForm.querySelector('input[type="email"]');
+  const row = nlForm.querySelector('.newsletter-row');
+  const label = nlForm.querySelector('.newsletter-label');
+  const status = document.createElement('p');
+  status.className = 'newsletter-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  nlForm.appendChild(status);
+  let pending = false;
+
+  nlForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (pending) return;
+    if (!emailInput.checkValidity()) { emailInput.reportValidity(); return; }
+    pending = true;
+    status.className = 'newsletter-status';
+    status.textContent = 'Signing you up…';
+
+    const cb = 'mlcb_' + Date.now() + '_' + Math.floor(Math.random() * 1e6);
+    const params = new URLSearchParams({
+      'fields[email]': emailInput.value,
+      'ml-submit': '1',
+      'anticsrf': 'true',
+      callback: cb
+    });
+    const script = document.createElement('script');
+    let done = false;
+    const finish = (ok, msg) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      delete window[cb];
+      script.remove();
+      pending = false;
+      status.textContent = msg;
+      status.classList.add(ok ? 'newsletter-status-ok' : 'newsletter-status-err');
+      if (ok) { if (row) row.style.display = 'none'; if (label) label.style.display = 'none'; }
+    };
+    const timer = setTimeout(() => finish(false, 'Something went wrong — please try again in a moment.'), 9000);
+
+    window[cb] = (res) => finish(
+      !!(res && res.success),
+      res && res.success ? 'Thanks! Check your email to confirm.' : 'That didn\u2019t go through — double-check the address and try again.'
+    );
+    script.onerror = () => finish(false, 'Couldn\u2019t reach the signup service — try again in a moment.');
+    script.src = nlForm.action + '?' + params.toString();
+    document.body.appendChild(script);
+  });
+}

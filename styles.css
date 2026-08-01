@@ -963,6 +963,17 @@ section { padding: 96px 0; }
   opacity: 0.5;
   cursor: not-allowed;
 }
+.newsletter-status {
+  margin: 14px 0 0;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.newsletter-status:empty { display: none; }
+.newsletter-status-ok { color: var(--highlight); }
+.newsletter-status-err { color: var(--accent); }
 
 .contact-info {
   list-style: none;
