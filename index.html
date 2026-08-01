@@ -20,15 +20,15 @@ section: home
 testimonials: []
 
 # ---------------------------------------------------------------------------
-# Newsletter signup. The form is HIDDEN until newsletter_action is set, so no
-# dead form that drops emails ever ships. To turn it on:
-#   1. Create a list/form in your email service (MailerLite, Kit, Mailchimp).
-#   2. Copy the form's action URL (the <form action="..."> from their embed).
-#   3. Paste it below as newsletter_action.
-# If their email field isn't named "email", update the input's name attribute
-# in the Follow section to match (e.g. Mailchimp uses EMAIL, Kit email_address).
+# Newsletter signup (MailerLite, account 2549802). Stays a disabled "coming
+# soon" state until mailerlite_form is set. To turn it live:
+#   1. In MailerLite, build an Embedded form.
+#   2. From its embed code, copy the data-form value:
+#      <div class="ml-embedded" data-form="THIS_VALUE"></div>
+#   3. Paste that value below. The account script (in the layout) then loads
+#      on this page and renders the form.
 # ---------------------------------------------------------------------------
-newsletter_action: ""
+mailerlite_form: ""
 ---
 
 <!-- HERO -->
@@ -218,15 +218,11 @@ newsletter_action: ""
     <p>Show dates, clips, and photos from the last night out go up on Instagram first.</p>
     <a href="https://instagram.com/midwesthoneyband" target="_blank" rel="noopener" class="btn btn-primary">Follow on Instagram</a>
 
-    {% if page.newsletter_action != "" %}
-    <form class="newsletter" action="{{ page.newsletter_action }}" method="post" target="_blank">
-      <label class="newsletter-label" for="nl-email">Or get show dates straight to your inbox</label>
-      <div class="newsletter-row">
-        <input id="nl-email" class="newsletter-input" type="email" name="email" required placeholder="you@email.com" autocomplete="email" aria-label="Email address">
-        <button type="submit" class="btn btn-ghost">Sign Up</button>
-      </div>
-      <p class="newsletter-fine">No spam, just show announcements. Unsubscribe anytime.</p>
-    </form>
+    {% if page.mailerlite_form != "" %}
+    <div class="newsletter">
+      <p class="newsletter-label">Or get show dates straight to your inbox</p>
+      <div class="ml-embedded" data-form="{{ page.mailerlite_form }}"></div>
+    </div>
     {% else %}
     <div class="newsletter newsletter-soon">
       <p class="newsletter-label">Email list coming soon</p>
