@@ -72,12 +72,14 @@
 
         </table>
 
-        <!-- Footer (MailerLite appends the required unsubscribe link below this) -->
+        <!-- Footer. {$unsubscribe} is MailerLite's merge tag; it becomes each
+             recipient's unique unsubscribe URL at send time (required). -->
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
           <tr>
             <td align="center" style="padding:18px 32px; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:18px; color:#777777;">
               Midwest Honey &middot; Chicago pop rock &amp; punk cover band<br>
-              You're getting this because you signed up at midwesthoneyband.com.
+              You're getting this because you signed up at midwesthoneyband.com.<br>
+              <a href="{$unsubscribe}" style="color:#999999; text-decoration:underline;">Unsubscribe</a>
             </td>
           </tr>
         </table>
