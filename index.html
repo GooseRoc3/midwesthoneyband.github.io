@@ -227,6 +227,15 @@ newsletter_action: ""
       </div>
       <p class="newsletter-fine">No spam, just show announcements. Unsubscribe anytime.</p>
     </form>
+    {% else %}
+    <div class="newsletter newsletter-soon">
+      <p class="newsletter-label">Email list coming soon</p>
+      <div class="newsletter-row">
+        <input class="newsletter-input" type="email" placeholder="you@email.com" aria-label="Email signup, coming soon" disabled>
+        <button type="button" class="btn btn-ghost" disabled>Sign Up</button>
+      </div>
+      <p class="newsletter-fine">We're setting up show-date emails. Follow on Instagram in the meantime.</p>
+    </div>
     {% endif %}
   </div>
 </section>

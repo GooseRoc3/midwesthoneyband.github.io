@@ -958,6 +958,11 @@ section { padding: 96px 0; }
   font-size: 0.8rem;
   color: var(--muted);
 }
+.newsletter-input:disabled,
+.newsletter-soon .btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .contact-info {
   list-style: none;
