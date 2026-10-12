@@ -758,6 +758,13 @@ section { padding: 96px 0; }
   font-size: 0.85rem;
   line-height: 1.2;
 }
+.shows-table .show-note {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.2;
+  margin: 2px 0;
+}
 .shows-table tr:hover td { background: var(--bg-3); }
 .shows-table a {
   font-family: var(--display);

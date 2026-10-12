@@ -69,11 +69,12 @@ if (welcomeModal) {
     if (!seen) {
       const venue = nextShow.querySelector('.show-venue')?.textContent.trim() || '';
       const when = nextShow.querySelector('.show-when')?.textContent.trim() || '';
+      const note = nextShow.querySelector('.show-note')?.textContent.trim() || '';
       const where = nextShow.querySelector('.show-where')?.textContent.trim() || '';
       const tickets = nextShow.querySelector('.ticket-col')?.textContent.trim() || '';
       const detailEl = welcomeModal.querySelector('.modal-detail');
       const subEl = welcomeModal.querySelector('.modal-sub');
-      if (detailEl) detailEl.textContent = [venue, when].filter(Boolean).join(' · ');
+      if (detailEl) detailEl.textContent = [venue, when, note].filter(Boolean).join(' · ');
       if (subEl) subEl.textContent = [where, tickets].filter(Boolean).join(' · ');
 
       const closeModal = () => {
